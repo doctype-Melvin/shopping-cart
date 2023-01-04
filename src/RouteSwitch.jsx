@@ -8,7 +8,7 @@ import Cart from "./components/Cart";
 const RouteSwitch = () => {
     return (
         <BrowserRouter>
-            <div>
+            <div className="navbar">
                 <nav>
                     <ul>
                         <li>
