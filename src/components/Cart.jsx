@@ -17,10 +17,12 @@ const Cart = (props) => {
                 {props.order.map(item => {
                     return (
                         <Card
+                        id={item.id}
                         key={item.id}
                         name={item.type}
                         amount={item.value}
                         total={item.total}
+                        order={props.order}
                         />
                     )
                 })}

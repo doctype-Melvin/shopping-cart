@@ -5,7 +5,7 @@ const Product = (props) => {
 
     const productAndAmount = (e) => {
         let total = e.target.value * props.price
-        props.setProduct({id: nanoid(), type: e.target.name, value: e.target.value, total })        
+        props.setProduct({id: props.id, type: e.target.name, value: e.target.value, total })        
     }
 
     const addToOrder = () => {
