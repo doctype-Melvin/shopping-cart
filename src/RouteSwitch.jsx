@@ -1,11 +1,14 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-
+import { useState } from "react";
 import Home from "./components/Home";
 import Shop from "./components/Shop";
 import Cart from "./components/Cart";
 
 const RouteSwitch = () => {
+    const [product, setProduct] = useState({})
+    const [order, setOrder] = useState([])
+
     return (
         <BrowserRouter>
             <div className="navbar">
@@ -18,16 +21,36 @@ const RouteSwitch = () => {
                             <Link to="/shopping-cart/components/Shop">Shop</Link>
                         </li>
                         <li>
-                            <Link to="/shopping-cart/components/Cart">Cart</Link>
+                            <Link to="/shopping-cart/components/Cart">Cart {`(${order.length})`}</Link>
                         </li>
                     </ul>
                 </nav>
             </div>
         <Routes>
-            <Route path="/shopping-cart/" element={<Home />} />
-            <Route path="/shopping-cart/components/Home" element={<Home />} />
-            <Route path="/shopping-cart/components/Shop" element={<Shop />} />
-            <Route path="/shopping-cart/components/Cart" element={<Cart />} />
+            <Route path="/shopping-cart/" element={<Home 
+            setOrder={setOrder} 
+            order={order} 
+            setProduct={setProduct}
+            product={product}
+            />} />
+            <Route path="/shopping-cart/components/Home" element={<Home
+            setOrder={setOrder}
+            order={order} 
+            setProduct={setProduct}
+            product={product}
+            />} />
+            <Route path="/shopping-cart/components/Shop" element={<Shop
+            setOrder={setOrder}
+            order={order} 
+            setProduct={setProduct}
+            product={product}
+            />} />
+            <Route path="/shopping-cart/components/Cart" element={<Cart
+            setOrder={setOrder}
+            order={order}
+            setProduct={setProduct}
+            product={product}
+            />} />
         </Routes>
         </BrowserRouter>
     )
