@@ -11,6 +11,7 @@ const Shop = (props) => {
             url={item.url}
             name={item.name}
             description={item.description}
+            price={item.price}
             key={item.id}
             setOrder={props.setOrder}
             order={props.order}

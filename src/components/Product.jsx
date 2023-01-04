@@ -1,18 +1,17 @@
 import React from "react";
 import { useState } from "react";
+import { nanoid } from "nanoid";
 const Product = (props) => {
 
-    
-
     const productAndAmount = (e) => {
-        props.setProduct({type: e.target.name, value: e.target.value})        
+        let total = e.target.value * props.price
+        props.setProduct({id: nanoid(), type: e.target.name, value: e.target.value, total })        
     }
 
     const addToOrder = () => {
         props.setOrder(prevState => {
             return [...prevState, props.product]
         })
-        console.log(props.order)
     }
 
     return (
@@ -20,6 +19,7 @@ const Product = (props) => {
             <img className="image" src={props.url}></img>
             <span className="productName">{props.name} </span>
             <p className="productDescr">{props.description}</p>
+            <span className="priceTag">{props.price}</span>
             <div className="addToCart" >
                 <input 
                 className="amount"
