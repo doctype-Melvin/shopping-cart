@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "./Footer";
 
 const Home = (props) => {
     console.log(props)

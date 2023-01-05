@@ -32,7 +32,7 @@ const Cart = (props) => {
                 })}
             </div>
             <div className="summary">
-                {'Total: ' + reduceAmount()}
+                {'Total: ' + reduceAmount().toFixed(2)}
             </div>
         </div>
     )
