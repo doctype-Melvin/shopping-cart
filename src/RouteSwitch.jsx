@@ -10,20 +10,20 @@ const RouteSwitch = () => {
     const [product, setProduct] = useState({})
     const [order, setOrder] = useState([])
     const [showModal, setShowModal] = useState(false)
-
+    
     return (
         <BrowserRouter>
             <div className="navbar">
                 <nav>
-                    <ul>
+                    <ul className="navlinks">
                         <li>
-                            <Link to="/shopping-cart/components/Home">Home</Link>
+                            <Link className="link" to="/shopping-cart/components/Home">Home</Link>
                         </li>
                         <li>
-                            <Link to="/shopping-cart/components/Shop">Shop</Link>
+                            <Link className="link" to="/shopping-cart/components/Shop">Shop</Link>
                         </li>
                         <li>
-                            <Link to="/shopping-cart/components/Cart">Cart {`(${order.length})`}</Link>
+                            <Link className="link" to="/shopping-cart/components/Cart">Cart {`(${order.length})`}</Link>
                         </li>
                     </ul>
                 </nav>
