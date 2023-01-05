@@ -10,7 +10,16 @@ const RouteSwitch = () => {
     const [product, setProduct] = useState({})
     const [order, setOrder] = useState([])
     const [showModal, setShowModal] = useState(false)
-    
+    let totalItems = () => {
+       return order.length > 0 ? order.map(item => parseInt(item.value))
+        .reduce((a, b) => a+b) :
+        0
+    }
+
+    useEffect(() => {
+        totalItems() 
+    }, [order])
+
     return (
         <BrowserRouter>
             <div className="navbar">
@@ -23,7 +32,7 @@ const RouteSwitch = () => {
                             <Link className="link" to="/shopping-cart/components/Shop">Shop</Link>
                         </li>
                         <li>
-                            <Link className="link" to="/shopping-cart/components/Cart">Cart {`(${order.length})`}</Link>
+                            <Link className="link" to="/shopping-cart/components/Cart">Cart {`(${totalItems()})`}</Link>
                         </li>
                     </ul>
                 </nav>

@@ -6,7 +6,7 @@ const Cart = (props) => {
 
     const reduceAmount = () => {
         return props.order.length > 0 ?
-         props.order.map(item => item.total).reduce((a, b) => a + b) :
+         props.order.map(item => item.total).reduce((a, b) => a + b).toFixed(2) :
          'No items yet'
      }
 
@@ -32,7 +32,7 @@ const Cart = (props) => {
                 })}
             </div>
             <div className="summary">
-                {'Total: ' + reduceAmount().toFixed(2)}
+                {'Total: ' + reduceAmount()}
             </div>
         </div>
     )
