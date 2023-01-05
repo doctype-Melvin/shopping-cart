@@ -28,7 +28,10 @@ const Product = (props) => {
         
     }
 
-   
+    const modalToggle = () => {
+        props.setShowModal(prevState => !prevState)
+        console.log(props.showModal)
+    }
 
     return (
         <div className="productContainer" name={props.name}>
@@ -44,7 +47,11 @@ const Product = (props) => {
                 onChange={productAndAmount}
                 ></input>
                 <button
-                onClick={addToOrder}
+                onClick={() => {
+                    addToOrder(),
+                    modalToggle()
+                }
+            }
                 >Add to Cart</button>
             </div>
         </div>

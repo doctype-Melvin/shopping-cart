@@ -2,8 +2,11 @@ import React from "react";
 import Product from "./Product";
 import products from "../data"
 import { useState } from "react";
+import Message from "./Message";
 
 const Shop = (props) => {
+
+    
 
     const mapper = products.map(item => {
         return (
@@ -18,6 +21,8 @@ const Shop = (props) => {
             order={props.order}
             setProduct={props.setProduct}
             product={props.product}
+            showModal={props.showModal}
+            setShowModal={props.setShowModal}
             />
         )
     })
@@ -29,7 +34,11 @@ const Shop = (props) => {
             <div className="productGrid">
                 {mapper}
             </div>
-            
+            {props.showModal ? <Message 
+            setShowModal={props.setShowModal} 
+            showModal={props.showModal}
+            order={props.order}
+            /> : null}
         </div>
     )
 }

@@ -9,10 +9,7 @@ import { useEffect } from "react";
 const RouteSwitch = () => {
     const [product, setProduct] = useState({})
     const [order, setOrder] = useState([])
-
-    // useEffect(() => {
-    //     console.log(order)
-    // }, [order])
+    const [showModal, setShowModal] = useState(false)
 
     return (
         <BrowserRouter>
@@ -49,12 +46,16 @@ const RouteSwitch = () => {
             order={order} 
             setProduct={setProduct}
             product={product}
+            showModal={showModal}
+            setShowModal={setShowModal}
             />} />
             <Route path="/shopping-cart/components/Cart" element={<Cart
             setOrder={setOrder}
             order={order}
             setProduct={setProduct}
             product={product}
+            showModal={showModal}
+            setShowModal={setShowModal}
             />} />
         </Routes>
         </BrowserRouter>

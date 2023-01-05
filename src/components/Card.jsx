@@ -27,21 +27,22 @@ const Card = (props) => {
         <div className="item">
             <img></img>
             {/* Inputs needed to change items/delete items */}
+            {props.showModal ? <span>{props.amount}</span> :
             <input 
             type="number"
             defaultValue={props.amount}
             onChange={editItem}  
-            />
+            />}
 
             
             <span>{props.name}</span>
             <span>{props.total}</span>
-            <button 
+            {props.showModal ? null : <button 
             className="deleteBtn"
             type="button"
             onClick={deleteItem}
             id={props.id}
-            >X</button>
+            >X</button>}
         </div>
     )
 }
