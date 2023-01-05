@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { nanoid } from "nanoid";
 const Product = (props) => {
@@ -18,10 +18,17 @@ const Product = (props) => {
     }
 
     const addToOrder = () => {
-        props.setOrder(prevState => {
-            return [...prevState, props.product]
-        })
+        if (props.order.every(item => item.id !== props.product.id)) {
+            props.setOrder(prevState => {
+                return [...prevState, props.product]
+            })
+        } else {
+         return null
+        }
+        
     }
+
+   
 
     return (
         <div className="productContainer" name={props.name}>
