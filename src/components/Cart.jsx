@@ -5,10 +5,13 @@ import { useEffect } from "react";
 const Cart = (props) => {
 
     const reduceAmount = () => {
-       return props.order.length > 0 ?
-        props.order.map(item => item.total).reduce((a, b) => a + b) :
-        'No items yet'
-    }
+        return props.order.length > 0 ?
+         props.order.map(item => item.total).reduce((a, b) => a + b) :
+         'No items yet'
+     }
+
+    useEffect(() => {
+    }, [props.order])
     
     return (
         <div className="cartContainer">
@@ -23,6 +26,7 @@ const Cart = (props) => {
                         amount={item.value}
                         total={item.total}
                         order={props.order}
+                        setOrder={props.setOrder}
                         />
                     )
                 })}

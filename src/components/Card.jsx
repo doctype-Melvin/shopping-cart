@@ -5,13 +5,14 @@ const Card = (props) => {
     // This finds the object in the order array
     const findOrderItem = () => props.order.find(item => item.id === props.id)
 
-    // Find the to edit object and set its value
-    // Needs a way to update the state - substitute old object with new object
-    // Recalculate the total price
     const editItem = (e) => {
         const obj = findOrderItem()
         obj.value = e.target.valueAsNumber
-        console.log(obj, e.target.valueAsNumber)
+        obj.total = obj.calc()
+        let indexFind = props.order.findIndex(i => i.id === obj.id)
+        let newOrder = [...props.order]
+        newOrder[indexFind] = obj
+        props.setOrder(newOrder)
     }
 
 
@@ -28,6 +29,7 @@ const Card = (props) => {
             
             <span>{props.name}</span>
             <span>{props.total}</span>
+            <button className="deleteBtn">X</button>
         </div>
     )
 }

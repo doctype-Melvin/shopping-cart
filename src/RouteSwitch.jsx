@@ -4,10 +4,15 @@ import { useState } from "react";
 import Home from "./components/Home";
 import Shop from "./components/Shop";
 import Cart from "./components/Cart";
+import { useEffect } from "react";
 
 const RouteSwitch = () => {
     const [product, setProduct] = useState({})
     const [order, setOrder] = useState([])
+
+    // useEffect(() => {
+    //     console.log(order)
+    // }, [order])
 
     return (
         <BrowserRouter>
