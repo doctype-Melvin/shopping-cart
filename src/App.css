@@ -297,7 +297,7 @@ body {
   bottom: 25vh;
   height: 450px;
   width: 600px;
-  border: solid red 2px;
+  box-shadow: 0 0 12px 0px var(--dark2);
 }
 
 .overview {
@@ -312,7 +312,15 @@ body {
 
 .modalClose {
   float: right;
-  margin: 15px
+  margin: 15px;
+  border: none;
+  background-color: var(--light2);
+  padding: 5px 10px;
+}
+
+.modalClose:hover {
+  background-color: var(--light1);
+  cursor: pointer;
 }
 
 .modalTitle {
@@ -328,4 +336,10 @@ body {
 footer {
   text-align: center;
   padding: 10px;
+  background-color: var(--light2);
+}
+
+footer > a {
+  text-decoration: none;
+  color: var(--dark1);
 }
