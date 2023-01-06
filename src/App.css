@@ -15,7 +15,7 @@
 }
 
 html, body, #root {
-  height: 100vh;
+  min-height: 100vh;
   padding: 0;
   margin: 0;
   font-family: monospace;
@@ -24,8 +24,8 @@ html, body, #root {
 #root {
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  min-height: 100vh;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 body {
@@ -51,7 +51,7 @@ body {
 }
 
 .navlinks > li {
-  font-size: 2rem;
+  font-size: 1.75rem;
 }
 
 .link {
@@ -126,15 +126,37 @@ body {
 
 .productDescr {
   text-align: justify;
+  padding: 15px;
+  margin: 0;
+}
+
+.priceTag {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
 }
 
 .addToCart {
   align-items: center;
 }
 
-.amount {
+.addItem {
+  background-color: var(--base);
+  color: var(--light3);
+  border: none;
+  padding: 8px;
+}
+
+.addItem:hover {
+  background-color: var(--light3);
+  color: var(--dark2);
+  cursor: pointer;
+}
+
+.amount, .adjustItems {
   max-width: 60px;
   margin-right: 10px;
+  border: none;
+  padding: 5px;
 }
 
 .productGrid {
@@ -151,13 +173,23 @@ body {
   max-width: 300px;
   align-items: center;
   justify-content: space-evenly;
-  padding: 10px;
+  padding: 15px;
+  background-color: var(--light1);
+  box-shadow: 0 0 10px 0px var(--base);
+}
+
+.productName {
+  font-size: 1.2rem;
+}
+
+.productContainer, .image,
+.addItem {
+  border-radius: 5px;
 }
 
 .image {
   width: 200px;
   margin-bottom: 20px;
-  box-shadow: 5px 5px 10px 0px rgb(213, 213, 213);
 }
 
 /* Products in Shop End */
@@ -167,12 +199,15 @@ body {
   display: flex;
   flex-direction: column;
   flex: 1;
+  position: relative;
 }
 
 .title, .description {
   margin-left: auto;
   margin-right: auto;
 }
+
+
 /* Shop End */
 
 /* Cart Start */
@@ -201,6 +236,14 @@ body {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(auto, 1fr);
   align-items: center;
+}
+
+.itemModal {
+  display: grid;
+  grid-template-columns: .25fr 1.5fr .35fr;
+  grid-template-rows: repeat(auto, 1fr);
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .item > input {
@@ -243,6 +286,43 @@ body {
   text-align: center;
 }
 /* Cart End */
+
+/* Modal Start */
+.modalContainer {
+  background-color: var(--light3);
+  position: absolute;
+  top: 25vh;
+  left: 33vw;
+  right: 33vw;
+  bottom: 25vh;
+  height: 450px;
+  width: 600px;
+  border: solid red 2px;
+}
+
+.overview {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(auto, 1fr);
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+
+.modalClose {
+  float: right;
+  margin: 15px
+}
+
+.modalTitle {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 2rem;
+}
+
+
+/* Modal End */
 
 /* Footer container Start */
 footer {

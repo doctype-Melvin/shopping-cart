@@ -6,18 +6,19 @@ import Card from "./Card";
 
 const Message = (props) => {
 
-    const closeModal = () => {
-        props.setShowModal(prevState => !prevState)
-    }
+    const closeModal = () => props.setShowModal(prevState => !prevState)
+
+
 
     return (
         <div className="modalContainer">
             <button 
+            className="modalClose"
             type="button"
             onClick={closeModal}
             >X</button>
-            Hello World
-            <div>
+            <div className="modalTitle">Cart Overview</div>
+            <div className="overview">
             {props.order.map(item => {
                     return (
                         <Card

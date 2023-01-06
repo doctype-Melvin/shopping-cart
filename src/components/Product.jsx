@@ -47,6 +47,7 @@ const Product = (props) => {
                 onChange={productAndAmount}
                 ></input>
                 <button
+                className="addItem"
                 onClick={() => {
                     addToOrder(),
                     modalToggle()

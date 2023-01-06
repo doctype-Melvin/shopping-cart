@@ -1,4 +1,5 @@
 import React from "react";
+import { Tooltip } from "@mui/material";
 
 const Card = (props) => {
 
@@ -24,10 +25,11 @@ const Card = (props) => {
 
 
     return (
-        <div className="item">
+        <div className={props.showModal ? "itemModal" : "item"}>
             {/* Inputs needed to change items/delete items */}
             {props.showModal ? <span>{props.amount}</span> :
-            <input 
+            <input
+            className="adjustItems"
             type="number"
             defaultValue={props.amount}
             onChange={editItem}  
@@ -36,12 +38,18 @@ const Card = (props) => {
             
             <span className="itemName">{props.name}</span>
             <span className="itemTotal">{props.total}</span>
-            {props.showModal ? null : <button 
-            className="deleteBtn"
-            type="button"
-            onClick={deleteItem}
-            id={props.id}
-            >X</button>}
+            {props.showModal ? null : <Tooltip 
+            title={<span style={{fontSize: '13px'}}>Delete</span>} 
+            className="deleteTool"
+            placement="right"
+            >
+                <button
+                className="deleteBtn"
+                type="button"
+                onClick={deleteItem}
+                id={props.id}
+                >X</button>
+            </Tooltip>}
         </div>
     )
 }

@@ -24,7 +24,7 @@ const Cart = (props) => {
                         key={item.id}
                         name={item.type}
                         amount={item.value}
-                        total={item.total}
+                        total={item.total.toFixed(2)}
                         order={props.order}
                         setOrder={props.setOrder}
                         />
