@@ -329,7 +329,28 @@ body {
   font-size: 2rem;
 }
 
+.modalSum, .goCart {
+  margin-left: auto;
+  margin-right: auto;
+}
 
+.modalSum {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+}
+
+.goCart > button {
+  border: none;
+  padding: 10px 15px;
+  border-radius: 3px;
+  background-color: var(--light2);
+}
+
+.goCart > button:hover {
+  cursor: pointer;
+  background-color: var(--base);
+  color: var(--light3);
+}
 /* Modal End */
 
 /* Footer container Start */

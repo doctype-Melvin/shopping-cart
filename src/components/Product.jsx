@@ -1,23 +1,26 @@
 import React, { useEffect } from "react";
-import { useState } from "react";
-import { nanoid } from "nanoid";
+
 const Product = (props) => {
 
     const productAndAmount = (e) => {
-        let total = e.target.value * props.price
-        props.setProduct({
-            id: props.id, 
-            type: e.target.name, 
-            value: e.target.value, 
-            price: props.price, 
-            total,
-            calc() {
-            return this.price * this.value
-            }
-        })        
+        if (e.target.value > 0 ) {
+            let total = e.target.value * props.price
+            props.setProduct({
+                id: props.id, 
+                type: e.target.name, 
+                value: e.target.value, 
+                price: props.price, 
+                total,
+                calc() {
+                return this.price * this.value
+                }
+            })
+        } else {
+            return
+        }
     }
 
-    const addToOrder = () => {
+    const addToOrder = (e) => {
         if (props.order.every(item => item.id !== props.product.id)) {
             props.setOrder(prevState => {
                 return [...prevState, props.product]
@@ -30,7 +33,6 @@ const Product = (props) => {
 
     const modalToggle = () => {
         props.setShowModal(prevState => !prevState)
-        console.log(props.showModal)
     }
 
     return (
@@ -40,10 +42,11 @@ const Product = (props) => {
             <p className="productDescr">{props.description}</p>
             <span className="priceTag">{props.price}</span>
             <div className="addToCart" >
-                <input 
+                <input
                 className="amount"
                 type="number"
                 name={props.name}
+                min="1"
                 onChange={productAndAmount}
                 ></input>
                 <button

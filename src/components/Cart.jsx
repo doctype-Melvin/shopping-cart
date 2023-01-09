@@ -16,7 +16,7 @@ const Cart = (props) => {
     return (
         <div className="cartContainer">
             <h1 className="title">Shopping Cart Overview</h1>
-            {props.order.length > 0  && <div className="orderDetails">
+            {props.order.length > 0 && <div className="orderDetails">
                 {props.order.map(item => {
                     return (
                         <Card
