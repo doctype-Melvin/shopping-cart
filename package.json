@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://doctype-melvin.github.io/shopping-cart/",
+  
   "scripts": {
     "dev": "vite",
     "build": "vite build",

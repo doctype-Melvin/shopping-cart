@@ -6,8 +6,6 @@ import Message from "./Message";
 
 const Shop = (props) => {
 
-    
-
     const mapper = products.map(item => {
         return (
             <Product 

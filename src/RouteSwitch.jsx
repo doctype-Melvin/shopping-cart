@@ -26,13 +26,13 @@ const RouteSwitch = () => {
                 <nav>
                     <ul className="navlinks">
                         <li>
-                            <Link className="link" to="/shopping-cart/components/Home">Home</Link>
+                            <Link className="link" to="shopping-cart/components/Home">Home</Link>
                         </li>
                         <li>
-                            <Link className="link" to="/shopping-cart/components/Shop">Shop</Link>
+                            <Link className="link" to="shopping-cart/components/Shop">Shop</Link>
                         </li>
                         <li>
-                            <Link className="link" to="/shopping-cart/components/Cart">Cart {`(${totalItems()})`}</Link>
+                            <Link className="link" to="shopping-cart/components/Cart">Cart {`(${totalItems()})`}</Link>
                         </li>
                     </ul>
                 </nav>
